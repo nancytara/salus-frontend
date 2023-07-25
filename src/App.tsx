@@ -1,10 +1,11 @@
-import AppLayout from "./components/layout/AppLayout";
+import { RouterProvider } from "react-router-dom";
 import AppThemeProvider from "./theme/AppThemeProvider";
+import router from "./navigation/Router";
 
 function App() {
   return (
     <AppThemeProvider>
-      <AppLayout />
+      <RouterProvider router={router} />
     </AppThemeProvider>
   );
 }

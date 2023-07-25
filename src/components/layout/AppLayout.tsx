@@ -4,6 +4,8 @@ import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import WidgetsIcon from "@mui/icons-material/Widgets";
 import StarIcon from "@mui/icons-material/Star";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Outlet } from "react-router-dom";
+import MainTabs from "../tabs/MainTabs";
 
 function AppLayout() {
   return (
@@ -44,20 +46,9 @@ function AppLayout() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container paddingX={4} paddingY={2} gap={4}>
-        <Grid item>Dashboard</Grid>
-        <Grid item>Calendario</Grid>
-        <Grid item>Visite mediche</Grid>
-        <Grid item>Contatti</Grid>
-        <Grid item>Batch importati</Grid>
-      </Grid>
+      <MainTabs />
       <Grid container>
-        <Grid item height={890} xs={10}>
-          <Typography>Main content</Typography>
-        </Grid>
-        <Grid item height={890} xs={2}>
-          <Typography>Main content</Typography>
-        </Grid>
+        <Outlet />
       </Grid>
     </Grid>
   );
