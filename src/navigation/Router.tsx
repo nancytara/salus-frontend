@@ -4,18 +4,12 @@ import {
   Route,
 } from "react-router-dom";
 import AppLayout from "../components/layout/AppLayout";
+import DashboardPage from "../pages/dashboard/DashboardPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppLayout />}>
-      <Route
-        path="dashboard"
-        element={
-          <div>
-            <span>Dashboard</span>
-          </div>
-        }
-      />
+      <Route path="dashboard" element={<DashboardPage />} />
       <Route
         path="calendar"
         element={
