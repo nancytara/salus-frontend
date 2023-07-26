@@ -29,8 +29,8 @@ function MainTabs() {
       />
       <Tab
         label="Visite mediche"
-        value="/visits"
-        to="/visits"
+        value="/visits/${id}"
+        to="/visits/${id}"
         component={Link}
       />
       <Tab label="Contatti" value="/contacts" to="/contacts" component={Link} />

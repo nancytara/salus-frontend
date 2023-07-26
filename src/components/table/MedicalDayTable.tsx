@@ -23,7 +23,7 @@ const columns: GridColDef<MedicalDayDTO>[] = [
     headerName: "ID",
     flex: 1,
     renderCell: (params) => (
-      <Link to={`/visit/${params.value}`}>{params.value}</Link>
+      <Link to={`/visits/${params.value}`}>{params.value}</Link>
     ),
   },
   {
