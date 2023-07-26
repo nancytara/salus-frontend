@@ -1,5 +1,6 @@
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
+
 import {
   DataGrid,
   GridColDef,
@@ -11,6 +12,7 @@ import { useState } from "react";
 import { MedicaDayControllerApi, MedicalDayDTO } from "../../api";
 import { MedicalDayDTOStatoMedicalDayEnum } from "../../api/models/medical-day-dto";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const DEFAULT_PAGE = 0;
 const DEFAULT_PAGE_SIZE = 5;
@@ -42,23 +44,30 @@ const columns: GridColDef<MedicalDayDTO>[] = [
     field: "state",
     headerName: "Stato",
     flex: 1,
-    renderCell: (value) => (
-      <Chip
-        label={
-          value.row.statoMedicalDay ===
-          MedicalDayDTOStatoMedicalDayEnum.COMPLETO
-            ? "Completo"
-            : "In lavorazione"
-        }
-        color={
-          value.row.statoMedicalDay ===
-          MedicalDayDTOStatoMedicalDayEnum.COMPLETO
-            ? "success"
-            : "warning"
-        }
-      />
-    ),
+    renderCell: (params) => {
+      const id = params.row.id;
+      const statoMedicalDay = params.row.statoMedicalDay;
+
+      return (
+        <Link to={`/visite/${id}`}>
+          <Chip
+            label={
+              statoMedicalDay === MedicalDayDTOStatoMedicalDayEnum.COMPLETO
+                ? "Completo"
+                : "In lavorazione"
+            }
+            color={
+              statoMedicalDay === MedicalDayDTOStatoMedicalDayEnum.COMPLETO
+                ? "success"
+                : "warning"
+            }
+            style={{ cursor: "pointer" }}
+          />
+        </Link>
+      );
+    },
   },
+  // ... altre colonne
 ];
 
 function MedicalDayTable() {
