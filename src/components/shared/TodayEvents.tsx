@@ -9,6 +9,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
+import Divider from "@mui/material/Divider";
 import { useTheme } from "@mui/material/styles";
 import { useQuery } from "@tanstack/react-query";
 import { EventoControllerApi, EventoDTOTipologiaEventoEnum } from "../../api";
@@ -72,26 +73,31 @@ function TodayEvents() {
           <CircularProgress />
         ) : (
           <List>
-            {events?.data.content?.map((event) => (
-              <ListItem key={event.id}>
-                <ListItemAvatar>
-                  <Avatar>
-                    <CalendarMonthIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText
-                  primary={`${
-                    event.tipologiaEvento &&
-                    getLabelForEventType(event.tipologiaEvento)
-                  }: ${event.dipendente?.nome} ${event.dipendente?.cognome}`}
-                  secondary={
-                    event.timestamp &&
-                    new Date(event.timestamp).toLocaleDateString("it", {
-                      dateStyle: "medium",
-                    })
-                  }
-                />
-              </ListItem>
+            {events?.data.content?.map((event, i) => (
+              <>
+                <ListItem key={event.id}>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <CalendarMonthIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={`${
+                      event.tipologiaEvento &&
+                      getLabelForEventType(event.tipologiaEvento)
+                    }: ${event.dipendente?.nome} ${event.dipendente?.cognome}`}
+                    secondary={
+                      event.timestamp &&
+                      new Date(event.timestamp).toLocaleDateString("it", {
+                        dateStyle: "medium",
+                      })
+                    }
+                  />
+                </ListItem>
+                {i !== (events.data.content?.length as number) - 1 && (
+                  <Divider />
+                )}
+              </>
             ))}
           </List>
         )}
