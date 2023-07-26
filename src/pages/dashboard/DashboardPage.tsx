@@ -1,20 +1,17 @@
-import { EventoControllerApi } from "../../api";
-import { useQuery } from "@tanstack/react-query";
+import Grid from "@mui/material/Grid";
+import TodaySection from "../../components/shared/TodaySection";
+import TodayEvents from "../../components/shared/TodayEvents";
 
 function DashboardPage() {
-  const { data } = useQuery({
-    queryKey: ["events"],
-    queryFn: () =>
-      new EventoControllerApi().findAll4({}, { page: 0, size: 10 }),
-  });
-
-  // useEffect(() => {
-  //   new EventoControllerApi()
-  //     .findAll4({}, { page: 0, size: 10 })
-  //     .then((response) => console.log(response.data));
-  // }, []);
-
-  return <div>{JSON.stringify(data?.data)}</div>;
+  return (
+    <Grid container>
+      <Grid item xs={10} padding={1}></Grid>
+      <Grid item xs={2} padding={1}>
+        <TodaySection />
+        <TodayEvents />
+      </Grid>
+    </Grid>
+  );
 }
 
 export default DashboardPage;
