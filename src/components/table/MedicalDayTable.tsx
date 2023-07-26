@@ -45,23 +45,22 @@ const columns: GridColDef<MedicalDayDTO>[] = [
     field: "state",
     headerName: "Stato",
     flex: 1,
-    renderCell: (params) => {
+    renderCell: (value) => (
       <Chip
         label={
-          params.row.statoMedicalDay ===
+          value.row.statoMedicalDay ===
           MedicalDayDTOStatoMedicalDayEnum.COMPLETO
             ? "Completo"
             : "In lavorazione"
         }
         color={
-          params.row.statoMedicalDay ===
+          value.row.statoMedicalDay ===
           MedicalDayDTOStatoMedicalDayEnum.COMPLETO
             ? "success"
             : "warning"
         }
-        style={{ cursor: "pointer" }}
-      />;
-    },
+      />
+    ),
   },
 ];
 
