@@ -18,7 +18,14 @@ const DEFAULT_PAGE = 0;
 const DEFAULT_PAGE_SIZE = 5;
 
 const columns: GridColDef<MedicalDayDTO>[] = [
-  { field: "id", headerName: "ID" },
+  {
+    field: "id",
+    headerName: "ID",
+    flex: 1,
+    renderCell: (params) => (
+      <Link to={`/visits/${params.value}`}>{params.value}</Link>
+    ),
+  },
   {
     field: "doctor",
     headerName: "Medico",
@@ -33,41 +40,29 @@ const columns: GridColDef<MedicalDayDTO>[] = [
     valueGetter: (param: GridValueGetterParams<MedicalDayDTO>) =>
       param.row.contratto.sede?.provincia,
   },
-  // {
-  //   field: "totalVisits",
-  //   headerName: "Totale visite",
-  //   flex: 1,
-  //   valueGetter: (param: GridValueGetterParams<MedicalDayDTO>) =>
-  //     param.row.visiteMediche?.length || 0,
-  // },
+  // ... altre colonne
   {
     field: "state",
     headerName: "Stato",
     flex: 1,
     renderCell: (params) => {
-      const id = params.row.id;
-      const statoMedicalDay = params.row.statoMedicalDay;
-
-      return (
-        <Link to={`/visite/${id}`}>
-          <Chip
-            label={
-              statoMedicalDay === MedicalDayDTOStatoMedicalDayEnum.COMPLETO
-                ? "Completo"
-                : "In lavorazione"
-            }
-            color={
-              statoMedicalDay === MedicalDayDTOStatoMedicalDayEnum.COMPLETO
-                ? "success"
-                : "warning"
-            }
-            style={{ cursor: "pointer" }}
-          />
-        </Link>
-      );
+      <Chip
+        label={
+          params.row.statoMedicalDay ===
+          MedicalDayDTOStatoMedicalDayEnum.COMPLETO
+            ? "Completo"
+            : "In lavorazione"
+        }
+        color={
+          params.row.statoMedicalDay ===
+          MedicalDayDTOStatoMedicalDayEnum.COMPLETO
+            ? "success"
+            : "warning"
+        }
+        style={{ cursor: "pointer" }}
+      />;
     },
   },
-  // ... altre colonne
 ];
 
 function MedicalDayTable() {
