@@ -14,6 +14,7 @@ import { useTheme } from "@mui/material/styles";
 import { useQuery } from "@tanstack/react-query";
 import { EventoControllerApi, EventoDTOTipologiaEventoEnum } from "../../api";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Fragment } from "react";
 
 function getLabelForEventType(eventType: EventoDTOTipologiaEventoEnum): string {
   switch (eventType) {
@@ -74,8 +75,8 @@ function TodayEvents() {
         ) : (
           <List>
             {events?.data.content?.map((event, i) => (
-              <>
-                <ListItem key={event.id}>
+              <Fragment key={event.id}>
+                <ListItem>
                   <ListItemAvatar>
                     <Avatar>
                       <CalendarMonthIcon />
@@ -97,7 +98,7 @@ function TodayEvents() {
                 {i !== (events.data.content?.length as number) - 1 && (
                   <Divider />
                 )}
-              </>
+              </Fragment>
             ))}
           </List>
         )}

@@ -3,6 +3,7 @@ import HomeBanner from "../../components/shared/HomeBanner";
 import HomeBoxes from "../../components/shared/HomeBoxes";
 import TodayEvents from "../../components/shared/TodayEvents";
 import TodaySection from "../../components/shared/TodaySection";
+import MedicalDayTable from "../../components/table/MedicalDayTable";
 
 function DashboardPage() {
   return (
@@ -10,6 +11,7 @@ function DashboardPage() {
       <Grid item xs={10} padding={1}>
         <HomeBanner />
         <HomeBoxes />
+        <MedicalDayTable />
       </Grid>
       <Grid item xs={2} padding={1}>
         <TodaySection />
