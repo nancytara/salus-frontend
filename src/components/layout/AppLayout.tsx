@@ -6,8 +6,11 @@ import StarIcon from "@mui/icons-material/Star";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Outlet } from "react-router-dom";
 import MainTabs from "../tabs/MainTabs";
+import { useTheme } from "@mui/material/styles";
 
 function AppLayout() {
+  const theme = useTheme();
+
   return (
     <Grid container>
       <Grid
@@ -16,15 +19,24 @@ function AppLayout() {
         justifyContent="space-between"
         flexGrow={1}
         border={1}
+        borderColor={theme.palette.grey[300]}
       >
         <Grid>
           <Grid container>
-            <Grid padding={2} borderRight={1}>
-              <SupervisedUserCircleIcon />
+            <Grid
+              padding={2}
+              borderRight={1}
+              borderColor={theme.palette.grey[300]}
+            >
+              <SupervisedUserCircleIcon color="primary" />
             </Grid>
-            <Grid padding={2} borderRight={1}>
-              <WidgetsIcon />
-              <StarIcon />
+            <Grid
+              padding={2}
+              borderRight={1}
+              borderColor={theme.palette.grey[300]}
+            >
+              <WidgetsIcon color="primary" />
+              <StarIcon color="warning" />
             </Grid>
           </Grid>
         </Grid>
@@ -39,7 +51,7 @@ function AppLayout() {
             <Typography>Agenzia del demanio</Typography>
             <Grid>
               <Grid container>
-                <AccountCircleIcon />
+                <AccountCircleIcon color="primary" />
                 <Typography>Stefano Martella</Typography>
               </Grid>
             </Grid>
@@ -47,7 +59,7 @@ function AppLayout() {
         </Grid>
       </Grid>
       <MainTabs />
-      <Grid container>
+      <Grid container margin={1}>
         <Outlet />
       </Grid>
     </Grid>
