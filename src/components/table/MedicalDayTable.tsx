@@ -12,7 +12,7 @@ import { useState } from "react";
 import { MedicaDayControllerApi, MedicalDayDTO } from "../../api";
 import { MedicalDayDTOStatoMedicalDayEnum } from "../../api/models/medical-day-dto";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const DEFAULT_PAGE = 0;
 const DEFAULT_PAGE_SIZE = 5;
@@ -23,7 +23,7 @@ const columns: GridColDef<MedicalDayDTO>[] = [
     headerName: "ID",
     flex: 1,
     renderCell: (params) => (
-      <Link to={`/visits/${params.value}`}>{params.value}</Link>
+      <NavLink to={`/visits/${params.value}/dettagli`}>{params.value}</NavLink>
     ),
   },
   {

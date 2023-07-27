@@ -4,14 +4,14 @@ import { Tab, Tabs } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function VisiteMedicheTab() {
-  const routeMatch = useRouteMatch(["/dettagli", "/fogliofirme"]);
+  const routeMatch = useRouteMatch(["/:id/dettagli", "/fogliofirme"]);
   const currentTab = routeMatch?.pattern?.path;
   return (
     <Tabs value={currentTab}>
       <Tab
         label="Dettagli"
-        value="visits/dettagli"
-        to="dettagli"
+        value="visits/:id/dettagli"
+        to=":id/dettagli"
         component={Link}
       />
       <Tab

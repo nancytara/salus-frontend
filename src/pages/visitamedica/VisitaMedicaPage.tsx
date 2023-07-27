@@ -12,7 +12,7 @@ function VisitaMedicaPage() {
         <Grid>
           <VisiteMedicheTab />
         </Grid>
-        <Grid container>
+        <Grid container paddingY={2}>
           <Riepilogo />
         </Grid>
         <Grid container>
