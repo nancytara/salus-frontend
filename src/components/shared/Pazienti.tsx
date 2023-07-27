@@ -2,12 +2,10 @@ import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import CircularProgress from "@mui/material/CircularProgress";
-
 import { useParams } from "react-router-dom";
 import {
   MedicaDayControllerApi,
-  VisitaMedicaControllerApi,
-  VisitaMedicaDTO,
+  MedicalDayDTO,
   VisitaMedicaDTOStatoVisitaMedicaEnum,
 } from "../../api";
 import { useQuery } from "@tanstack/react-query";
@@ -16,13 +14,13 @@ import Paper from "@mui/material/Paper";
 import Chip from "@mui/material/Chip";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 
-const columns: GridColDef<VisitaMedicaDTO>[] = [
+const columns: GridColDef<MedicalDayDTO>[] = [
   {
     field: "nome",
     headerName: "Nome",
     flex: 1,
-    valueGetter: (param: GridValueGetterParams<VisitaMedicaDTO>) =>
-      param.row.dipendente?.nome,
+    valueGetter: (param: GridValueGetterParams<MedicalDayDTO>) =>
+      param.row.
   },
   {
     field: "stato",
@@ -71,7 +69,7 @@ function Pazienti() {
   const { data, isLoading } = useQuery({
     queryKey: ["medical-day", id],
     queryFn: () =>
-      new VisitaMedicaControllerApi().findAll(id as unknown as number),
+      new MedicaDayControllerApi().findById1(id as unknown as number),
     select: (response) => response.data,
   });
 
@@ -110,7 +108,7 @@ function Pazienti() {
           <DataGrid
             loading={isLoading}
             columns={columns}
-            rows={data?. ?? []}
+            rows={data?.visiteMediche ?? []}
             hideFooter
           />
         </Paper>

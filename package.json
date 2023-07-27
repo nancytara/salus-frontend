@@ -61,6 +61,7 @@
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.0.0",
+    "typescript-eslint": "^0.0.1-alpha.0",
     "typescript-plugin-css-modules": "^5.0.1"
   }
 }
