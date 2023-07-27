@@ -34,8 +34,8 @@ function MainTabs() {
       <Tab
         style={{ padding: theme.spacing(3) }}
         label="Visite mediche"
-        value="/visits"
-        to="/visits"
+        value="/visits/${id}"
+        to="/visits/${id}"
         component={Link}
       />
       <Tab
