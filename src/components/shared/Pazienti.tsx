@@ -14,20 +14,23 @@ import Paper from "@mui/material/Paper";
 import Chip from "@mui/material/Chip";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 
-const columns: GridColDef<MedicalDayDTO>[] = [
+type VisitaTable = {
+  nome: string;
+  stato: VisitaMedicaDTOStatoVisitaMedicaEnum;
+};
+const columns: GridColDef<VisitaTable>[] = [
   {
     field: "nome",
     headerName: "Nome",
     flex: 1,
-    valueGetter: (param: GridValueGetterParams<MedicalDayDTO>) =>
-      param.row.
+    valueGetter: (param: GridValueGetterParams<VisitaTable>) => param.row.nome,
   },
   {
     field: "stato",
     headerName: "Stato",
     flex: 1,
     renderCell: (params) => {
-      const value = params.value;
+      const value = params.row.stato;
 
       let label;
       let color;
@@ -72,6 +75,13 @@ function Pazienti() {
       new MedicaDayControllerApi().findById1(id as unknown as number),
     select: (response) => response.data,
   });
+  const visiteMediche = data?.visiteMediche ?? [];
+
+  const visiteMedicheRows =
+    visiteMediche.map((visita) => ({
+      nome: visita.dipendente?.nome,
+      stato: visita.statoVisitaMedica,
+    })) ?? [];
 
   return isLoading ? (
     <CircularProgress />
@@ -107,8 +117,8 @@ function Pazienti() {
         <Paper sx={{ height: "auto", width: "100%" }}>
           <DataGrid
             loading={isLoading}
-            columns={columns}
-            rows={data?.visiteMediche ?? []}
+            columns={columns ?? []}
+            rows={visiteMedicheRows ?? []}
             hideFooter
           />
         </Paper>
