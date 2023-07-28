@@ -77,11 +77,11 @@ export interface LongFilter {
      * @type {RangeFilterLong}
      * @memberof LongFilter
      */
-    greaterOrEqualThan?: RangeFilterLong;
+    lessOrEqualThan?: RangeFilterLong;
     /**
      * 
      * @type {RangeFilterLong}
      * @memberof LongFilter
      */
-    lessOrEqualThan?: RangeFilterLong;
+    greaterOrEqualThan?: RangeFilterLong;
 }

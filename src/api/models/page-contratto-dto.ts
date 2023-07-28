@@ -25,13 +25,13 @@ export interface PageContrattoDTO {
      * @type {number}
      * @memberof PageContrattoDTO
      */
-    totalElements?: number;
+    totalPages?: number;
     /**
      * 
      * @type {number}
      * @memberof PageContrattoDTO
      */
-    totalPages?: number;
+    totalElements?: number;
     /**
      * 
      * @type {number}

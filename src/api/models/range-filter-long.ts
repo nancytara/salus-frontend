@@ -11,6 +11,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { RangeFilterLong } from './range-filter-long';
 /**
  * 
  * @export
@@ -76,11 +77,11 @@ export interface RangeFilterLong {
      * @type {RangeFilterLong}
      * @memberof RangeFilterLong
      */
-    greaterOrEqualThan?: RangeFilterLong;
+    lessOrEqualThan?: RangeFilterLong;
     /**
      * 
      * @type {RangeFilterLong}
      * @memberof RangeFilterLong
      */
-    lessOrEqualThan?: RangeFilterLong;
+    greaterOrEqualThan?: RangeFilterLong;
 }

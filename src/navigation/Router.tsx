@@ -19,15 +19,16 @@ const router = createBrowserRouter(
           </div>
         }
       />
-      <Route path="visits/:id" element={<VisitaMedicaPage />}>
+      <Route path="visits" element={<VisitaMedicaPage />}>
         <Route
-          path="dettagli"
+          path=":id/dettagli"
           element={
             <div>
               <span>Dettagli</span>
             </div>
           }
         />
+
         <Route
           path="fogliofirme"
           element={

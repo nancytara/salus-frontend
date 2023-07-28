@@ -25,13 +25,13 @@ export interface PageDipendenteDTO {
      * @type {number}
      * @memberof PageDipendenteDTO
      */
-    totalElements?: number;
+    totalPages?: number;
     /**
      * 
      * @type {number}
      * @memberof PageDipendenteDTO
      */
-    totalPages?: number;
+    totalElements?: number;
     /**
      * 
      * @type {number}

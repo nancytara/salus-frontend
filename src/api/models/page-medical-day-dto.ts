@@ -25,13 +25,13 @@ export interface PageMedicalDayDTO {
      * @type {number}
      * @memberof PageMedicalDayDTO
      */
-    totalElements?: number;
+    totalPages?: number;
     /**
      * 
      * @type {number}
      * @memberof PageMedicalDayDTO
      */
-    totalPages?: number;
+    totalElements?: number;
     /**
      * 
      * @type {number}

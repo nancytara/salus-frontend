@@ -77,11 +77,11 @@ export interface LocalDateFilter {
      * @type {RangeFilterLocalDate}
      * @memberof LocalDateFilter
      */
-    greaterOrEqualThan?: RangeFilterLocalDate;
+    lessOrEqualThan?: RangeFilterLocalDate;
     /**
      * 
      * @type {RangeFilterLocalDate}
      * @memberof LocalDateFilter
      */
-    lessOrEqualThan?: RangeFilterLocalDate;
+    greaterOrEqualThan?: RangeFilterLocalDate;
 }

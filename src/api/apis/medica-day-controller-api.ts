@@ -63,7 +63,7 @@ export const MedicaDayControllerApiAxiosParamCreator = function (configuration?:
             localVarUrlObj.search = (new URLSearchParams(query)).toString();
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers?.['Content-Type'] === 'application/json';
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
 
             return {
@@ -135,15 +135,15 @@ export const MedicaDayControllerApiAxiosParamCreator = function (configuration?:
             }
             const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {...criteria, ...page} as any;
+            const localVarQueryParameter = {} as any;
 
-            // if (criteria !== undefined) {
-            //     localVarQueryParameter['criteria'] = criteria;
-            // }
+            if (criteria !== undefined) {
+                localVarQueryParameter['criteria'] = criteria;
+            }
 
-            // if (page !== undefined) {
-            //     localVarQueryParameter['page'] = page;
-            // }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
 
             const query = new URLSearchParams(localVarUrlObj.search);
             for (const key in localVarQueryParameter) {
@@ -240,7 +240,7 @@ export const MedicaDayControllerApiAxiosParamCreator = function (configuration?:
             localVarUrlObj.search = (new URLSearchParams(query)).toString();
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers?.['Content-Type'] === 'application/json';
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
 
             return {

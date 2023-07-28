@@ -25,13 +25,13 @@ export interface PageEventoDTO {
      * @type {number}
      * @memberof PageEventoDTO
      */
-    totalElements?: number;
+    totalPages?: number;
     /**
      * 
      * @type {number}
      * @memberof PageEventoDTO
      */
-    totalPages?: number;
+    totalElements?: number;
     /**
      * 
      * @type {number}

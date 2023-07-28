@@ -11,6 +11,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { RangeFilterLocalDate } from './range-filter-local-date';
 /**
  * 
  * @export
@@ -76,11 +77,11 @@ export interface RangeFilterLocalDate {
      * @type {RangeFilterLocalDate}
      * @memberof RangeFilterLocalDate
      */
-    greaterOrEqualThan?: RangeFilterLocalDate;
+    lessOrEqualThan?: RangeFilterLocalDate;
     /**
      * 
      * @type {RangeFilterLocalDate}
      * @memberof RangeFilterLocalDate
      */
-    lessOrEqualThan?: RangeFilterLocalDate;
+    greaterOrEqualThan?: RangeFilterLocalDate;
 }
